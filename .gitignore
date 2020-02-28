@@ -87,3 +87,6 @@ typings/
 
 # Electron-Forge
 out/
+
+# Workspace
+Yuriri.code-workspace

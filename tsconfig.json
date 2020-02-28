@@ -2,12 +2,15 @@
   "compilerOptions": {
     "allowJs": true,
     "module": "commonjs",
+    "jsx": "react",
+    "target": "ES6",
+    "lib": ["es6", "dom"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "dist",
+    "outDir": "./.webpack/main",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "paths": {
