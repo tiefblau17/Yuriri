@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import '../../public/index.css';
+import configureStore from './configureStore';
 
-console.log('👋 This message is being logged by "renderer.tsx", included via webpack');
+const store = configureStore();
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root')
+);
 
 serviceWorker.register();
