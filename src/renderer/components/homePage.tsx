@@ -2,7 +2,25 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-class HomePage extends Component {
+import QuitModal from '../components/quit';
+
+interface HomePageProps {
+
+}
+
+interface HomePageState {
+  modalShow: boolean
+}
+
+class HomePage extends Component<HomePageProps, HomePageState> {
+
+  constructor(props: HomePageProps) {
+    super(props);
+    this.state = {
+      modalShow: false
+    }
+  }
+
   render() {
     return (
       <div>
@@ -20,7 +38,11 @@ class HomePage extends Component {
             <Link to="/">Bonus</Link>
           </li>
           <li>
-            <Link to="/">Quit</Link>
+            <Link to="/main_window" onClick={() => this.setState({ modalShow: true })}>Quit</Link>
+            <QuitModal 
+              show={this.state.modalShow}
+              onHide={() => this.setState({ modalShow: false })}
+            />
           </li>
         </ul>
       </div>
