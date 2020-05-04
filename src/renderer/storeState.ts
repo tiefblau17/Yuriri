@@ -7,6 +7,14 @@ export interface SettingState {
   seVolume: number
 }
 
+export interface BonusState {
+  show: boolean
+  discoveredMusic: boolean[]
+  discoveredPictures: boolean[]
+  discoveredVideos: boolean[]
+}
+
 export default interface StoreState {
+  bonus: BonusState
   setting: SettingState
 }

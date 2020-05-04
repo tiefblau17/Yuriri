@@ -7,6 +7,12 @@ import rootReducer from './reducers';
 
 //TODO Load states for file
 export const initialState = {
+  bonus: {
+    show: true,
+    discoveredMusic: [true, true, false, true],
+    discoveredPictures: [true, true, true, false, true, true ,true, false, true, false, true, true, false],
+    discoveredVideos: [true, true, false, true]
+  },
   setting: {
     resolution: '720',
     textSpeed: 50,

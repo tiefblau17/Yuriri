@@ -3,9 +3,10 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import QuitModal from '../components/quit';
+import StoreState from '../storeState';
 
 interface HomePageProps {
-
+  showBonus: boolean
 }
 
 interface HomePageState {
@@ -34,9 +35,12 @@ class HomePage extends Component<HomePageProps, HomePageState> {
           <li>
             <Link to="/setting">Config</Link>
           </li>
-          <li>
-            <Link to="/">Bonus</Link>
-          </li>
+          {
+            this.props.showBonus &&
+              <li>
+            <Link to="/bonus">Bonus</Link>
+            </li>
+          }
           <li>
             <Link to="/main_window" onClick={() => this.setState({ modalShow: true })}>Quit</Link>
             <QuitModal 
@@ -50,4 +54,8 @@ class HomePage extends Component<HomePageProps, HomePageState> {
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state: StoreState) => ({
+  showBonus: state.bonus.show
+})
+
+export default connect(mapStateToProps)(HomePage);
